@@ -1,0 +1,18 @@
+[
+    {
+        "comment": "This is a comment",
+        "user_id": 1,
+        "blogpost_id": 1
+    },
+    {
+        "comment": "This also a comment",
+        "user_id": 2,
+        "blogpost_id": 2
+    },
+    {
+        "comment": "so many seeds",
+        "user_id": 3,
+        "blogpost_id": 3
+    }
+ 
+]

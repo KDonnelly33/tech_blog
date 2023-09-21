@@ -1,0 +1,16 @@
+[{
+    "title": "Im a Blog Post",
+    "content": "Hello World",
+    "user_id": 1
+},
+{
+    "title": "Im a Title!",
+    "content": "This is content for this blogpost. Yay!",
+    "user_id": 2
+},
+{
+    "title": "I am also a title",
+    "content": "More made up content",
+    "user_id": 3
+}
+]  
