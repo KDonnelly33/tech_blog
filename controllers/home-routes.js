@@ -50,6 +50,19 @@ router.get('/blogs/:id', async (req,res) => {
   }
 }
 );
+router.get('/newpost',  (req , res) => {
+  res.render("newpost")
+}
+);
+router.get('/login', async (req , res) => {
+  res.render("login")
+}
+);
+
+router.get('/signup', async (req , res) => {
+  res.render("signup")
+}
+);
 
 
 
