@@ -1,7 +1,9 @@
-<h1>Homepage</h1>
+
 {{#each blogs as |blog|}}
-<a href="/blogs/{{blog.id}}"> 
-<h1>{{blog.title}}</h1>
+<div class = "border border-blue-500 m-8 text-bold  rounded border-4 text-center">
+<a  href="/blogs/{{blog.id}}"> 
+<h1 class=" text-xl text-blue-500">{{blog.title}}</h1>
 </a>
 <p>created by {{user.username}} on {{format_date blog.date_created}} </p>
+</div>
 {{/each}}

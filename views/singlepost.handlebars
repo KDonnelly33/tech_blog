@@ -1,21 +1,20 @@
 
-<article>
+<article class="text-center">
     <div>
-        <h2>{{blog.title}}</h2>
-       
+        <h2 class = "text-2xl text-blue-500 text-bold">{{blog.title}}</h2>
         <div>
             Posted by {{blog.user.username}} on {{format_date blog.date_created}}
         </div>
     </div>
-    <div>{{blog.content}}</div>
+    <div class = "border-2 border-blue-500 rounded mx-9">{{blog.content}}</div>
 </article>
  
 {{!-- if post has comments post comments --}}
 {{#if blog.comments}}
     {{#each blog.comments}}
-            <div> 
+            <div  class = "border-2 border-blue-500 rounded mx-9"> 
                 <h3>{{comment}} </h3>
-                <div>Posted by {{user.username}} on {{format_date date_created}}
+                <div class = "text-xs">Posted by {{user.username}} on {{format_date date_created}}
                     
                 </div>
 
@@ -32,14 +31,14 @@
 <form id = "newcommentForm">
 
     <div>
-        <h3>Add New Comment</h3>
+        <h3 class="text-center text-blue-500">Add New Comment</h3>
     </div>
 
-    <div>
+    <div class = " flex items-center justify-center">
         <input type="hidden" name="blog-id" value="{{blog.id}}" />
         <label for="comment-body">Comment</label>
         <textarea id = "#new-body" name="comment-body"></textarea>
-        <button type="submit">Submit</button>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out" type="submit">Submit</button>
     </div>
 </form>
 
