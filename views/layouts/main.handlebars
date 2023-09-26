@@ -15,11 +15,14 @@
   </header>
   <nav class = "flex flex-row justify-around">
     <a href="/">Home</a>
-    <a href="/signup">signup</a>
+    {{#if logged_in}}
     <a href="/dashboard">dashboard</a>
-    <a href="/login">login</a>
-    <a href="/logout">logout</a>
  
+    <a href="/logout">logout</a>
+    {{else}}
+    <a href="/login">login</a>
+    <a href="/signup">signup</a>
+    {{/if}}
 
   
   </nav>

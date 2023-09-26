@@ -31,13 +31,13 @@
 <form id = "newcommentForm">
 
     <div>
-        <h3 class="text-center text-blue-500">Add New Comment</h3>
+        <h3 >Add New Comment</h3>
     </div>
 
-    <div class = " flex items-center justify-center">
+    <div>
         <input type="hidden" name="blog-id" value="{{blog.id}}" />
         <label for="comment-body">Comment</label>
-        <textarea id = "#new-body" name="comment-body"></textarea>
+        <textarea class id = "#new-body" name="comment-body"></textarea>
         <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out" type="submit">Submit</button>
     </div>
 </form>

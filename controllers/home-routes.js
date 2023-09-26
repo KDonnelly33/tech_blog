@@ -14,7 +14,9 @@ router.get('/', async (req , res) => {
     console.log(blogs)
 
 
-    res.render("homepage", {blogs})
+    res.render("homepage", {blogs,
+    logged_in: req.session.logged_in
+    })
   } catch (error) {
     logdivider()
     console.log("error at / homeroute")
@@ -50,10 +52,27 @@ router.get('/blogs/:id', async (req,res) => {
   }
 }
 );
-router.get('/newpost',  (req , res) => {
+
+
+router.get('/newpost', async (req , res) => {
   res.render("newpost")
 }
 );
+ router.get('/editpost/:id', async (req , res) => {
+   try {
+    const blogData = await BlogPost.findByPk(req.params.id);
+    if (blogData) {
+      const blog = blogData.get({ plain: true });
+      res.render('editpost', { blog });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) { 
+    res.status(500).json(err);
+  }
+}
+);
+
 router.get('/login', async (req , res) => {
   res.render("login")
 }

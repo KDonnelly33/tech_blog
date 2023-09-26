@@ -13,7 +13,7 @@ router.post("/", async (req,res)=>{
         req.session.save(()=>{
             req.session.user_id = newUser.id;
             req.session.username = newUser.username;
-            req.session.loggedIn = true;
+            req.session.logged_in = true;
             res.json(newUser);
         });
 
@@ -26,7 +26,7 @@ router.post("/", async (req,res)=>{
 
 router.post("/login", async (req,res)=>{
     try {
-        const userData = await User.findOne({where:{username:req.body.username}});
+        const userData = await User.findOne({where:{email:req.body.email}});
         if(!userData){
             res.status(400).json({message:"Incorrect username or passwrod"});
         
@@ -38,8 +38,12 @@ router.post("/login", async (req,res)=>{
                 res.status(400).json({message:"Incorrect username or passwrod"});
                 return;
             }
-            res.json({user:userData,message:"You are now logged in!"})
-    }
+            req.session.save(()=>{
+              req.session.user_id = userData.id;
+              req.session.username = userData.username;
+              req.session.logged_in = true;
+              res.json(userData);
+          });    }
     
     catch (err) {
         console.log(err);
@@ -48,7 +52,7 @@ router.post("/login", async (req,res)=>{
     });
 
     router.post('/logout', (req, res) => {
-        if (req.session.loggedIn) {
+        if (req.session.logged_in) {
           req.session.destroy(() => {
             res.status(204).end();
           });

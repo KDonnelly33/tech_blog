@@ -1,4 +1,13 @@
-<h1 class=" text-2xl text-blue-500 text-center" >dashboard</h1>
+<h1 class=" text-2xl text-blue-500 text-center" >Click on your post to edit post</h1>
+    {{#each blogs}}
+<div class="m-5">
+    
+    <a  href ="/editpost/{{id}}">
+    <span>{{title}}</span>
+    <span> {{format_date date_created}}</span>
+     </a>
+</div>
+     {{/each}}
 <div>
-<a class="w-full m-5 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"  href = "/newpost">New Post</a>
+<a class="w-full m-5 mt-8 text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out"  href = "/newpost">New Post</a>
 </div>
