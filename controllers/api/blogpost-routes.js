@@ -33,4 +33,19 @@ router.put("/:id", async (req, res) => {
 
     }
 });
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const deletedBlog = await BlogPost.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(deletedBlog);
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+});
+
 module.exports = router;

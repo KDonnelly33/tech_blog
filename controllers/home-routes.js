@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, BlogPost, Comment} =require('../models')
+const withAuth = require('../utils/auth');
 const logdivider = () => console.log(`===========================================================\n=================================================`)
 router.get('/', async (req , res) => {
   try {
@@ -25,7 +26,7 @@ router.get('/', async (req , res) => {
   }
 } )
 
-router.get('/blogs/:id', async (req,res) => {
+router.get('/blogs/:id',withAuth, async (req,res) => {
  try {
     logdivider()
     console.log("blog by id hit")
